@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store</title>
+    <!-- Link to CSS-->
+    <link rel="stylesheet" href="./index.css">
+    <script src="./script.js"></script>
+    <!-- Box Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <!-- Nav -->
+        <div class="nav container">
+            <a href="#" class="logo">Library</a>
+            <!-- Icon -->
+            <i class='bx bxs-book-reader'id="book-icon"></i>
+        </div>
+    </header>
+    <!-- Store -->
+    <script>
+        fetch('./books.json').then((data)=>{
+        console.log(data)
+        return data.json();
+        }).then((completedata)=>{
+        // console.log(completedata);
+        let data1="";
+        completedata.map((value)=>{
+            data1+=`<div class = "book">
+            <h1 class="title">${value.title}</h1>
+            <img src=${value.thumbnailUrl} alt="img" class="images">
+            <p class="status">${value.status}</p>
+            </div>`
+        })
+        document.getElementById("books").innerHTML=data1;
+        }).catch((err)=>{
+        console.log(err);
+        })
+    </script>
+    <noscript>Javascriptis not enabled</noscript>
+    <div id="books">
+        <!-- <div class = "book">
+            <h1 class="title">title</h1>
+            <img src="" alt="img" class="images">
+            <p class="short">Description</p>
+        </div> -->
+    </div>
+    <!-- <div id="roots"></div> -->
+</body>
+</html>
