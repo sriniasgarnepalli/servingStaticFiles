@@ -75,30 +75,46 @@ header {
 
 #books {
     display: flex;
-    justify-content: space-around;
+    justify-content: stretch;
     flex-wrap: wrap;
+    padding: 4rem;
+    flex-flow: row wrap;
 }
 
 .book {
-    width: 25%;
-    box-shadow: wheat;
+    width: 20%;
+    box-shadow: rgb(2, 5, 8);
     text-align: center;
-    padding: 5rem;
-    margin-bottom: 2rem;
+    padding: 2.5rem;
+    margin-bottom: 1rem;
 }
 
 .title {
     font-size: 1rem;
-    padding: 1.5rem;
+    color: brown;
 }
 
 .status {
     font-weight: bold;
     text-transform: capitalize;
     margin: 1em;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    color: blue;
 }
 
 .images {
-    width: 80%
+    width: 100%;
+    padding: 1.5rem;
+}
+
+.categories {
+    font-size: 0.8rem;
+    color: yellowgreen;
+    padding: 0.5rem;
+}
+
+@media all and (min-width:600px) {
+    .aside {
+        flex: 1;
+    }
 }

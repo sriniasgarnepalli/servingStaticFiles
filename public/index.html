@@ -20,20 +20,26 @@
             <!-- Icon -->
             <i class='bx bxs-book-reader'id="book-icon"></i>
         </div>
+        <noscript>
+        <h1>We’ve detected that JavaScript is disabled in this browser. Please enable JavaScript or switch to a supported browser to continue using.</h1>
+        </noscript>
     </header>
     <!-- Store -->
-    <script>
+    <div id="books">
+        <script>
         fetch('./books.json').then((data)=>{
         console.log(data)
         return data.json();
         }).then((completedata)=>{
-        // console.log(completedata);
+        console.log(completedata);
         let data1="";
         completedata.map((value)=>{
             data1+=`<div class = "book">
-            <h1 class="title">${value.title}</h1>
+            <p class="categories">Categorie : ${value.categories[0]}</p>
             <img src=${value.thumbnailUrl} alt="img" class="images">
-            <p class="status">${value.status}</p>
+            <h1 class="title">Title : ${value.title}</h1>
+            <p class="status">Author : ${value.authors[0]}</p>
+            <!-- <p class="description">${value.status}</p> -->
             </div>`
         })
         document.getElementById("books").innerHTML=data1;
@@ -41,8 +47,6 @@
         console.log(err);
         })
     </script>
-    <noscript>Javascriptis not enabled</noscript>
-    <div id="books">
         <!-- <div class = "book">
             <h1 class="title">title</h1>
             <img src="" alt="img" class="images">
